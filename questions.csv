@@ -1,0 +1,173 @@
+Module,Code,Question
+GI,GI1,Name of country: 
+GI,GI2,Name of province: 
+GI,GI3,Name of district: 
+GI,GI4,Name of interviewer:
+GI,GI5,Name of district interviewee/respondent:
+GI,GI6,Phone number of district interviewee/respondent
+GI,GI7,Interview start time
+GI,GI8,Interview end time 
+AC,AC1,What is the population size of this district?
+AC,AC2,"How many public health facilities are there in this district? (Include VMWs, health centers, provincial and district public hospitals.)"
+AC,AC3,How many private hospitals are there in this district?
+AC,AC4,How many Village Health Volunteers (VHVs) are there in this district?
+AC,AC5,How are Village Health Volunteers (VHVs) compensated in your district?
+AC,AC6,How many Village Malaria Workers (VMWs) are there in this district?
+AC,AC7,How are Village Malaria Workers (VMWs) compensated in your district?
+AC,AC8,Do Village Malaria Workers (VMWs) use malaria rapid diagnostic tests (RDTs) in your district?
+AC,AC9,Why don't all Village Malaria Workers (VMWs) use RDTs?
+AC,AC10,Do Village Malaria Workers (VMWs) provide artemisinin combination-based therapy (ACTs) for uncomplicated malaria in your district?
+AC,AC11,Why don't all Village Malaria Workers (VMWs) use ACTs?
+AC,AC12,Do Village Malaria Workers (VMWs) provide single low dose primaquine in your district?
+AC,AC13,Why don't all Village Malaria Workers (VMWs) use primaquine?
+AC,AC14,"What challenges, if any, do Village Malaria Workers (VMWs) face in providing high quality malaria care in your district?"
+AC,AC15,Which types of health care facilities/workers provide radical cure of P. vivax malaria using primaquine in your district? 
+AC,AC16,"What challenges, if any, does your district face in providing radical cure of P. vivax malaria using primaquine?"
+WP,WP1,Does your district have an Emergency Operations Center (EOC)?
+WP,WP2,Is your district Emergency Operations Center (EOC) currently involved in malaria work? 
+WP,WP3,What malaria-related tasks does the Emergency Operations Center (EOC) support?
+WP,WP4,Does your district have a Rapid Response Team (RRT)? 
+WP,WP5,What malaria-related tasks does the Rapid Response Team (RRT) support? 
+WP,WP6,Does your district have an overall work plan for malaria activities?
+WP,WP7,Did your district use a planning tool or template provided by the national or provincial level to create the most recent malaria work plan? 
+WP,WP8,Who is responsible for creating your district's malaria work plan(s)? 
+WP,WP9,Who approves your district's malaria work plan(s)?
+WP,WP10,Does your district track progress against targets/milestones on your malaria work plan?
+WP,WP11,Approximately how often does your district assess progress against targets/milestones in the malaria work plan?
+HR,HR1,How many total full-time staff work at this district office?
+HR,HR2a,How many full-time District head of communicable disease are currently employed by your district office?
+HR,HR2b,How many full-time District head of malaria are currently employed by your district office?
+HR,HR2c,How many full-time  Communicable disease officer are currently employed by your district office?
+HR,HR2d,How many full-time Malaria officer are currently employed by your district office?
+HR,HR2e,How many full-time  Health management information system (HMIS)/surveillance are currently employed by your district office?
+HR,HR2f,How many full-time  Entomologist are currently employed by your district office?
+HR,HR2g,How many full-time  Indoor residual sprayer are currently employed by your district office?
+HR,HR2h,"How many full-time  Information, education, communication (IEC) or behavior change communication (BCC) specialist are currently employed by your district office?"
+HR,HR2i1Specify,Other type1 of Staff
+HR,HR2i1,How many full-time  Others1 are currently employed by your district office?
+HR,HR2i2Specify,Other type2 of Staff
+HR,HR2i2,How many full-time  Others2 are currently employed by your district office?
+HR,HR2j1Specify,Other type3 of Staff
+HR,HR2j1,How many full-time  Others3 are currently employed by your district office?
+HR,HR2j2Specify,Other type4 of Staff
+HR,HR2j2,How many full-time  Others4 are currently employed by your district office?
+HR,HR3,"In the past 12 months, has your district office hired any seasonal or part-time laborers or staff?"
+HR,HR4,"In the past 12 months, how many seasonal or part-time laborers or staff  were hired to perform the following jobs:"
+TR,TR1,Does your district have any currently employed staff who have been trained in the past 12 months on leadership and/or program management?
+TR,TR2,"If yes, how many?"
+TR,TR3,Does your district have any currently employed staff who have been trained in the past 12 months on the National Malaria Diagnosis and Treatment guidelines (Version 2017)
+TR,TR4,"If yes, how many?"
+TR,TR5,Does your district have any currently employed staff who have been trained in the past 12 months on integrated community case management (ICCM)?
+TR,TR6,"If yes, how many?"
+TR,TR7,Does your district have any currently employed staff who have been trained in the past 12 months on the Malaria Elimination Surveillance Guidelines (November 2017)
+TR,TR8,"If yes, how many?"
+TR,TR9,Does your district have any currently employed staff who have been trained in the past 12 months on DHIS2 data entry and reporting?
+TR,TR10,"If yes, how many?"
+TR,TR11,Does your district have any currently employed staff who have been trained in the past 12 months on how to analyze and interpret malaria surveillance data in DHIS2?
+TR,TR12,"If yes, how many?"
+TR,TR13,Does your district have any currently employed staff who have been trained in the past 12 months on DHIS2 Case Based Tracker?
+TR,TR14,"If yes, how many?"
+TR,TR15,Does your district have any currently employed staff who have been trained in the past 12 months on how to conduct malaria outbreak response?
+TR,TR16,"If yes, how many?"
+TR,TR17,Does your district have any currently employed staff who have been trained in the past 12 months on how to conduct supportive supervision of health facilities and Village Malaria Workers (VMWs)?
+TR,TR18,"If yes, how many?"
+TR,TR19,Does your district have any currently employed staff who have been trained in the past 12 months on ODK stock reporting?
+TR,TR20,"If yes, how many?"
+TR,TR21,Does your district have any currently employed staff who have been trained in the past 12 months on indoor residual spraying (IRS)?
+TR,TR22,"If yes, how many?"
+TR,TR23,Does your district have any currently employed staff who have been trained in the past 12 months on larval source management (LSM)?
+TR,TR24,"If yes, how many?"
+TR,TR25,Does your district have any currently employed staff who have been trained in the past 12 months on entomology and/or entomological surveillance? 
+TR,TR26,"If yes, how many?"
+TR,TR27,Does your district office have funds that are immediately available to support training of district staff members?
+TR,TR28,Does your district office have funds that are immediately available to support the training of Village Malaria Workers (VMWs)? 
+KDA,KDA1,Does your district office have an available copy of the 2016-2020 National Malaria Strategic Plan that you can show me? 
+KDA,KDA2,Does your district office have an available copy of the most recent district-level malaria elimination plan that you can show me?
+KDA,KDA3,Does your district office have an available copy of the National Malaria Diagnosis and Treatment guidelines (Version 2017) that you can show me?
+KDA,KDA4,"Does your district office have an available copy of the most recent national malaria laboratory QA/QC ""quality assurance/quality control guidelines""?"
+KDA,KDA5,"Does your district office have an available copy of the most recent national information, education, and communication (IEC) or behavior change communication (BCC) guidelines that you can show me?"
+KDA,KDA6,Does your district office have an available copy of the Malaria Elimination Surveillance Guidelines (November 2017) that you can show me?
+SV,SV1,"When was the last supervision visit your district office received from the national level?"
+SV,SV2,"When was the last supervision visit your district office received from the provincial level?"
+SV,SV3,Does your district use any kind of prioritization scheme to target supervision visits to health facilities?
+SV,SV4,Approximately how frequently does your district office conduct supervision of public hospitals? 
+SV,SV5,Approximately how frequently does your district office conduct supervision of private hospitals? 
+SV,SV6,Approximately how frequently does your district office conduct supervision of pharmacies?
+SV,SV7,Approximately how frequently does your district office conduct supervision of Village Health Volunteers (VHVs)?
+SV,SV8,Approximately how frequently does your district office conduct supervision of Village Malaria Workers (VMWs)?
+SV,SV9,"When was the last supervision visit your district office conducted of any health facility in your district?"
+SV,SV10,How many health facilities were visited at your district's last supervision visit?
+SV,SV11,Which of the following topics does your district office assess when conducting supervision visits to health facilities?
+SV,SV12,Does your district office have funds that are immediately available to support supervision visits?
+SV,SV13,What challenges does your district office face in conducting routine supervision visits to health facilities?
+SC,SC1,How does your district submit ODK malaria stock reports?
+SC,SC2,Is malaria commodity distribution from your district to health facilities integrated with other health commodities? 
+SC,SC3,How many health facilities submitted Malaria Commodities LMIS Monthly Summary Reports to your district office in the previous month? 
+SC,SC4a,"In the previous month's Malaria Commodities LMIS Monthly Summary Report, how many health facilities in your district reported a stock out of  Malaria rapid diagnostic tests (RDTs)"
+SC,SC4b,"In the previous month's Malaria Commodities LMIS Monthly Summary Report, how many health facilities in your district reported a stock out of ACT 6x4"
+SC,SC4c,"In the previous month's Malaria Commodities LMIS Monthly Summary Report, how many health facilities in your district reported a stock out of Single low dose primaquine"
+SC,SC5,What challenges does your district office face in malaria commodity stockouts at health facilities?
+VC,VC1,"In the past 12 months, has Indoor Residual Spraying (IRS) been conducted in your district?"
+VC,VC2,"If yes, how many rounds of IRS were sprayed in the past 12 months?"
+VC,VC3,Where does your district target Indoor Residual Spraying (IRS)?
+VC,VC4,What challenges related to Indoor Residual Spraying (IRS) does your district face? 
+VC,VC5,Why has no Indoor Residual Spraying (IRS) been conducted in your district in the past 12 months? 
+VC,VC6,"When was the last Indoor Residual Spray (IRS) spray round conducted?"
+VC,VC7,What insecticide was used? 
+VC,VC8,"In the past 12 months, has there been a mass LLIN distribution campaign conducted in your district?"
+VC,VC9,What challenges related to LLIN distribution does your district face? 
+VC,VC10,Why has there been no mass LLIN distribution campaign conducted in the past 12 months? 
+VC,VC11,"When was the last mass LLIN distribution campaign conducted in your district?"
+VC,VC12,"In the past 12 months, has continuous distribution of LLINs (for example, to new residents or to pregnant women through antenatal care clinics) been conducted in your district? "
+VC,VC13,"In the past 12 months, have forest-goers in your district been specifically targeted to receive LLINs?"
+VC,VC14,"In the past 12 months, has there been any distribution of long-lasting insecticide-treated hammock nets (LLINHs) in your district? "
+VC,VC15,"In the past 12 months, has larval source management (LSM) been conducted in your district? "
+VC,VC16,"In the past 12 months, which larval source management (LSM) activities have been conducted in your district?"
+VC,VC17,What challenges related to larval source management (LSM) does your district face? 
+VC,VC18,Why has no larval source management (LSM) been conducted in your district in the past 12 months? 
+VC,VC19,"In the past 12 months, which of the following vector control surveillance indicators have been collected?"
+VC,VC20,"In the past 12 months, has entomological surveillance been conducted in your district? "
+VC,VC21,"In the past 12 months, which entomological surveillance activities have been conducted in your district?"
+VC,VC22,"In the past 12 months, which of the following entomological surveillance indicators have been collected in your district?"
+SR,SR1,"When the district reports on routine malaria surveillance data to the provincial level, at what level are those data aggregated? "
+SR,SR 2,What challenges does your district face in reporting malaria routine surveillance data?
+SR,SR3,How many computers/notebooks are in your office to use for malaria work? 
+SR,SR4,Is there a data quality assurance (DQA) mechanism in place to verify your district's routine malaria surveillance data?
+SR,SR5,Does your district routinely review your own malaria surveillance data?
+SR,SR6,Approximately how frequently does your district review your own malaria routine surveillance data?
+SR,SR7,"Within your district office, who leads the review of your district's own malaria routine surveillance data?"
+SR,SR8,Which malaria surveillance indicators are routinely reviewed by your district office?
+SR,SR9,How does your district share and use the review of your district's own malaria routine surveillance data?
+SR,SR10,Within how many days of case detection should a health facility in your district notify your office of the case?
+SR,SR11,Within how many days should a positive case be investigated?
+SR,SR12,Within how many days should interventions be deployed in response to a confirmed local case?  
+SR,SR13,Has your district conducted any case investigations?
+SR,SR14,What do you most often do if the case is not home when you visit?
+SR,SR15,What information do you use to determine if an index patient is a local case?
+SR,SR16,"When doing a case investigation, do you conduct other response activities at the same time?"
+SR,SR17,What activities do you conduct in response to a confirmed local case?  
+SR,SR18,"When doing a case investigation visit, do you take a GPS coordinate? "
+SR,SR19,From what location do you take the GPS coordinate for a case investigation?
+SR,SR20,What challenges does your district face in supporting case-based investigation and response?
+SR,SR21,Do you use these GPS coordinates to identify and respond to foci?
+SR,SR22,Do you use case investigation forms to collect data?
+SR,SR23,"If any case is not investigated, what are the main reasons these cases are not investigated?"
+SR,SR24,Has your district conducted any foci investigations?
+SR,SR25,Do you use foci investigation forms to collect data?
+SR,SR26,Is your district office currently using the DHIS2 Case Based Tracker to report on cases? 
+SR,SR27,Does your district office have funds immediately available to support case-based investigation? 
+SR,SR28,Does your district office have funds immediately available to support foci investigation? 
+SR,SR29,"Is proactive case detection (for example, screen and treat in high risk populations) currently taking place in your district?"
+SR,SR30,Has your district established a threshold to determine when there is an ongoing malaria outbreak?
+SR,SR31,"Is outbreak response (for example, screen and treat and/or IRS or LLIN distribution) currently taking place in your district?"
+SR,SR32,What challenges does your district face in supporting outbreak response?
+SR,SR33,"Does your district office have funds immediately available to support outbreak response (for example, screen and treat and/or IRS or LLIN distribution)?"
+FR,FR1,Who provides your district with financial resources for malaria-related activities?
+FR,FR2,Does your district allocate funds specifically to malaria-related activities?
+FR,FR3,Is your district office allowed to submit requests for additional funds (exceeding what is in the approved budget) to hire staff (both permanent and seasonal/casual labor)?
+FR,FR4,Has your district monitored the use of budgetary resources related to malaria compared to budget allocated by the provincial government to your district?
+FR,FR5,What challenges does your district face in finances for malaria?
+CC,CC1,Does your district office hold regular meetings with any of the following stakeholders?
+CC,CC2,Does your district health office disseminate malaria information to nearby districts (either in Laos or abroad)?
+CC,CC3,"If yes, which district? "
+CC,CC4,How does the district office engage with community members?

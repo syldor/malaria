@@ -4,7 +4,7 @@ library("openxlsx")
 
 setwd("/home/syldor/Projects/malaria")
 results <- as.data.table(read.csv2('main_data.csv', header = TRUE, sep=','))
-questions <- as.data.table(read.csv2('questions.csv', header = TRUE, sep=',', stringsAsFactors = FALSE))
+questions <- as.data.table(read.csv2('src/questions.csv', header = TRUE, sep=',', stringsAsFactors = FALSE))
 
 results[results == 'Other (specify):____________']<-""
 
@@ -26,6 +26,15 @@ setnames(results,'HR2_j2_Specify', 'HR2j2Specify')
 setnames(results,'HR2_j2', 'HR2j2')
 
 setnames(results,"GI3", "District")
+
+
+setnames(results, "VC26_4_OTH", "VC16_4_OTH")
+setnames(results, "SR1_1", "SR2_1")
+setnames(results, "T_CC3_1", "CC3_1")
+setnames(results, "T_CC3_2", "CC3_2")
+setnames(results, "T_CC3_3", "CC3_3")
+
+
 
 districts_list <- data.frame(District = results[, "District"])
 
@@ -121,7 +130,7 @@ for (moduleIdx in seq(from = 1, to=length(modules_list))) {
 }
 
 
-saveWorkbook(wb, "/home/syldor/VB-shared/AC.xlsx", overwrite = TRUE)
+saveWorkbook(wb, "/home/syldor/VB-shared/malaria_survey.xlsx", overwrite = TRUE)
 
 
 
