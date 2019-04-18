@@ -47,13 +47,9 @@ multipleAnswersQ <- function(question, results, questions) {
   headers <- names(results)[names(results) %in% headers]
   resultsForQuestion <-results[, names(results) %in% c("District", headers), with=FALSE]
   resultsLong <- melt(resultsForQuestion, id.vars = c("District"), measure.vars = headers)
-  resultsConcatenate <- resultsLong[value != "", .(value = paste(value, collapse="\n")), by = District]
-  names(resultsConcatenate)[names(resultsConcatenate) == 'value'] <- questions[Code==question, Question][1]
-  
+  names(resultsLong)[names(resultsLong) == 'value'] <- questions[Code==question, Question][1]
 
-  finalResult <- merge(districts_list, resultsConcatenate, by="District", all.x=TRUE)
-  finalResult[is.na(finalResult)] <- "-"
-  return(finalResult)
+  return(resultsLong)
 }
 
 
@@ -67,20 +63,18 @@ getQuestionsOfModule <- function(module) {
   return(headers5)
 }
 
-drawTable <- function(data, wb, idx, sheetNumber) {
-  numberOfDistricts <- 10
-  padding <- 1
-  header <- 1
+
+
+drawTableAgg <- function(data, wb, rowIdx, sheetNumber) {
   
-  tableSize <- numberOfDistricts + padding + header
-  headerRow <- (idx - 1) * tableSize + padding + header
+  headerRow <- rowIdx
   
   headerStyle <- createStyle(fontSize = 14, fontColour = "#FFFFFF", halign = "center",
                              fgFill = "#4F81BD", border="TopBottom", borderColour = "#4F81BD", wrapText = TRUE)
   
   tableStyle <- createStyle(border= "TopBottomLeftRight", valign="top", wrapText = TRUE)
   
-  tableRange <- seq(from= (idx - 1) * tableSize + padding + header, to=(idx - 1) * tableSize + padding + header + numberOfDistricts)
+  tableRange <- seq(from= rowIdx, to=rowIdx + nrow(data))
   
   addStyle(wb, sheet = sheetNumber, tableStyle, rows=tableRange, cols=1:5, gridExpand = TRUE)
   addStyle(wb, sheet = sheetNumber, headerStyle, rows=headerRow, cols=1:5, gridExpand = TRUE)
@@ -88,17 +82,7 @@ drawTable <- function(data, wb, idx, sheetNumber) {
   writeData(wb, sheet = sheetNumber, x = data, startCol = 1, startRow = headerRow)
 }
 
-group_questions <- function(res, idx, districts_list) {
-  df <- districts_list
-  start <-  min(4* (idx-1)+1, length(res))
-  end <- min(4*idx, length(res))
-  for (i in seq(from=start, to=end)) {
-    df <- merge(df, res[[i]], by="District", all.x=TRUE)
-  }
-  return(df)
-}
-
-generate_module_sheets <- function(idx, modules_list, wb, results, questions) {
+generate_module_agg_sheets <- function(idx, modules_list, wb, results, questions) {
   module <- modules_list[idx]
   sheetNumber <- idx
   ACMultipleQList <- getQuestionsOfModule(module)
@@ -106,33 +90,68 @@ generate_module_sheets <- function(idx, modules_list, wb, results, questions) {
   
   grouped_res <- list()
   
-  numberOfGroups <- ceiling(length(res)/ 4)
-  for (idx in seq(from = 1, to=numberOfGroups)) {
-    grouped_res[[idx]] <- group_questions(res, idx, districts_list)
+  for (idx in seq(from = 1, to=length(res))) {
+    df <- res[[idx]]
+    
+    question <- names(df)[3]
+    names(df) <- c("district", "variable", "question")
+    df <- df[df$question != ""]
+    df %<>% group_by(question) %>% summarise(n = n())
+    names(df) <- c(question, "answers")
+    grouped_res[[idx]] <- df
   }
   
   addWorksheet(wb, sheetName = module)
   
-  setColWidths(wb, sheet = sheetNumber, cols = 1, widths = 15)
-  setColWidths(wb, sheet = sheetNumber, cols = 2:20, widths = 60)
-  
+  setColWidths(wb, sheet = sheetNumber, cols = 1, widths = 60)
+  setColWidths(wb, sheet = sheetNumber, cols = 2:20, widths = 20)
+  rowIdx = 1
   for (idx in seq(from = 1, to=length(grouped_res))) {
-    drawTable(grouped_res[[idx]], wb, idx, sheetNumber)
+    drawTableAgg(grouped_res[[idx]], wb, rowIdx, sheetNumber)
+    rowIdx = rowIdx + 1 + nrow(grouped_res[[idx]])
   }
   return(wb)
 }
 
+## Aggregated Data
 
 
-## Raw Data
 wb <- createWorkbook()
 modules_list <- c('GI', 'AC', 'WP', 'HR', 'TR', 'KDA', 'SV', 'SC', 'VC', 'SR', 'FR', 'CC')
 
+ACMultipleQList <- getQuestionsOfModule('GI')
+res <- lapply(ACMultipleQList, multipleAnswersQ, results = results, questions = questions)
+
 
 for (moduleIdx in seq(from = 1, to=length(modules_list))) {
-  wb <- generate_module_sheets(moduleIdx, modules_list, wb, results, questions)
+  wb <- generate_module_agg_sheets(moduleIdx, modules_list, wb, results, questions)
 }
 
+saveWorkbook(wb, "/home/syldor/VB-shared/malaria_survey_agg.xlsx", overwrite = TRUE)
 
-saveWorkbook(wb, "/home/syldor/VB-shared/malaria_survey.xlsx", overwrite = TRUE)
+
+module <- modules_list[2]
+ACMultipleQList <- getQuestionsOfModule('AC')
+
+question <- 'AC5'
+districts_list <- data.frame(District = results[, "District"])
+codes <- names( results )
+headers <- c(question, codes[grepl(paste0(question, "_"), codes)])
+headers <- names(results)[names(results) %in% headers]
+resultsForQuestion <-results[, names(results) %in% c("District", headers), with=FALSE]
+resultsLong <- melt(resultsForQuestion, id.vars = c("District"), measure.vars = headers)
+names(resultsLong)[names(resultsLong) == 'value'] <- questions[Code==question, Question][1]
+resultsLong
+
+question <- names(resultsLong)[3]
+names(resultsLong) <- c("district", "variable", "question")
+
+resultsLong <- resultsLong[resultsLong$question != ""]
+
+
+resultsLong %<>% group_by(question) %>% summarise(n = n())
+resultsLong
+
+
+
 
