@@ -76,8 +76,8 @@ drawTableAgg <- function(data, wb, rowIdx, sheetNumber) {
   
   tableRange <- seq(from= rowIdx, to=rowIdx + nrow(data))
   
-  addStyle(wb, sheet = sheetNumber, tableStyle, rows=tableRange, cols=1:5, gridExpand = TRUE)
-  addStyle(wb, sheet = sheetNumber, headerStyle, rows=headerRow, cols=1:5, gridExpand = TRUE)
+  addStyle(wb, sheet = sheetNumber, tableStyle, rows=tableRange, cols=1:2, gridExpand = TRUE)
+  addStyle(wb, sheet = sheetNumber, headerStyle, rows=headerRow, cols=1:2, gridExpand = TRUE)
   
   writeData(wb, sheet = sheetNumber, x = data, startCol = 1, startRow = headerRow)
 }
@@ -96,8 +96,20 @@ generate_module_agg_sheets <- function(idx, modules_list, wb, results, questions
     question <- names(df)[3]
     names(df) <- c("district", "variable", "question")
     df <- df[df$question != ""]
-    df %<>% group_by(question) %>% summarise(n = n())
-    names(df) <- c(question, "answers")
+    
+    if(typeof(df$question) == "integer") {
+      df <- df %>% summarise(min = min(question), mean=mean(question), max = max(question))
+      
+      
+      df <- data.frame(question=c("min", "mean", "max"), results=c(df$min[1], df$mean[1], df$max[1]))
+      names(df) <- c(question, "results")
+      
+    }
+    else {
+      df %<>% group_by(question) %>% summarise(n = n())
+      names(df) <- c(question, "answers")
+    }
+    
     grouped_res[[idx]] <- df
   }
   
@@ -136,8 +148,12 @@ ACMultipleQList <- getQuestionsOfModule('AC')
 question <- 'AC5'
 districts_list <- data.frame(District = results[, "District"])
 codes <- names( results )
+
 headers <- c(question, codes[grepl(paste0(question, "_"), codes)])
 headers <- names(results)[names(results) %in% headers]
+
+
+
 resultsForQuestion <-results[, names(results) %in% c("District", headers), with=FALSE]
 resultsLong <- melt(resultsForQuestion, id.vars = c("District"), measure.vars = headers)
 names(resultsLong)[names(resultsLong) == 'value'] <- questions[Code==question, Question][1]
@@ -150,8 +166,11 @@ resultsLong <- resultsLong[resultsLong$question != ""]
 
 
 resultsLong %<>% group_by(question) %>% summarise(n = n())
+
 resultsLong
 
+resultsLong <- resultsLong %>% summarise(min = min(question), mean=mean(question), max = max(question))
 
 
-
+result <- data.frame(question=c("min", "mean", "max"), results=c(resultsLong$min[1], resultsLong$mean[1], resultsLong$max[1]))
+names(result) <- c(question, "results")
