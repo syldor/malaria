@@ -52,7 +52,10 @@ HR,HR2j1,How many full-time  Others3 are currently employed by your district off
 HR,HR2j2Specify,Other type4 of Staff
 HR,HR2j2,How many full-time  Others4 are currently employed by your district office?
 HR,HR3,"In the past 12 months, has your district office hired any seasonal or part-time laborers or staff?"
-HR,HR4,"In the past 12 months, how many seasonal or part-time laborers or staff  were hired to perform the following jobs:"
+HR,HR4a,"In the past 12 months, how many seasonal or part-time laborers or staff  were hired doing Indoor residual Spray"
+HR,HR4b,"In the past 12 months, how many seasonal or part-time laborers or staff  were hired doing Long Lasting insecticide traded net (LLIN) distribution"
+HR,HR4c,"In the past 12 months, how many seasonal or part-time laborers or staff  were hired doing Other1"
+HR,HR4d,"In the past 12 months, how many seasonal or part-time laborers or staff  were hired doing Other2"
 TR,TR1,Does your district have any currently employed staff who have been trained in the past 12 months on leadership and/or program management?
 TR,TR2,"If yes, how many?"
 TR,TR3,Does your district have any currently employed staff who have been trained in the past 12 months on the National Malaria Diagnosis and Treatment guidelines (Version 2017)
@@ -87,15 +90,15 @@ KDA,KDA3,Does your district office have an available copy of the National Malari
 KDA,KDA4,"Does your district office have an available copy of the most recent national malaria laboratory QA/QC ""quality assurance/quality control guidelines""?"
 KDA,KDA5,"Does your district office have an available copy of the most recent national information, education, and communication (IEC) or behavior change communication (BCC) guidelines that you can show me?"
 KDA,KDA6,Does your district office have an available copy of the Malaria Elimination Surveillance Guidelines (November 2017) that you can show me?
-SV,SV1,"When was the last supervision visit your district office received from the national level?"
-SV,SV2,"When was the last supervision visit your district office received from the provincial level?"
+SV,SV1,When was the last supervision visit your district office received from the national level?
+SV,SV2,When was the last supervision visit your district office received from the provincial level?
 SV,SV3,Does your district use any kind of prioritization scheme to target supervision visits to health facilities?
 SV,SV4,Approximately how frequently does your district office conduct supervision of public hospitals? 
 SV,SV5,Approximately how frequently does your district office conduct supervision of private hospitals? 
 SV,SV6,Approximately how frequently does your district office conduct supervision of pharmacies?
 SV,SV7,Approximately how frequently does your district office conduct supervision of Village Health Volunteers (VHVs)?
 SV,SV8,Approximately how frequently does your district office conduct supervision of Village Malaria Workers (VMWs)?
-SV,SV9,"When was the last supervision visit your district office conducted of any health facility in your district?"
+SV,SV9,When was the last supervision visit your district office conducted of any health facility in your district?
 SV,SV10,How many health facilities were visited at your district's last supervision visit?
 SV,SV11,Which of the following topics does your district office assess when conducting supervision visits to health facilities?
 SV,SV12,Does your district office have funds that are immediately available to support supervision visits?
@@ -112,12 +115,12 @@ VC,VC2,"If yes, how many rounds of IRS were sprayed in the past 12 months?"
 VC,VC3,Where does your district target Indoor Residual Spraying (IRS)?
 VC,VC4,What challenges related to Indoor Residual Spraying (IRS) does your district face? 
 VC,VC5,Why has no Indoor Residual Spraying (IRS) been conducted in your district in the past 12 months? 
-VC,VC6,"When was the last Indoor Residual Spray (IRS) spray round conducted?"
+VC,VC6,When was the last Indoor Residual Spray (IRS) spray round conducted?
 VC,VC7,What insecticide was used? 
 VC,VC8,"In the past 12 months, has there been a mass LLIN distribution campaign conducted in your district?"
 VC,VC9,What challenges related to LLIN distribution does your district face? 
 VC,VC10,Why has there been no mass LLIN distribution campaign conducted in the past 12 months? 
-VC,VC11,"When was the last mass LLIN distribution campaign conducted in your district?"
+VC,VC11,When was the last mass LLIN distribution campaign conducted in your district?
 VC,VC12,"In the past 12 months, has continuous distribution of LLINs (for example, to new residents or to pregnant women through antenatal care clinics) been conducted in your district? "
 VC,VC13,"In the past 12 months, have forest-goers in your district been specifically targeted to receive LLINs?"
 VC,VC14,"In the past 12 months, has there been any distribution of long-lasting insecticide-treated hammock nets (LLINHs) in your district? "

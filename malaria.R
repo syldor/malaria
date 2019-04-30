@@ -8,6 +8,10 @@ results <- as.data.table(read.csv2('main_data.csv', header = TRUE, sep=','))
 questions <- as.data.table(read.csv2('src/questions.csv', header = TRUE, sep=',', stringsAsFactors = FALSE))
 
 results[results == 'Other (specify):____________']<-""
+results[results == 'Other (specify):______________']<-""
+results[results == 'Other (specify):_______________']<-""
+results[results == 'Other (specify):_______']<-""
+results[results == 'Non-government organization (NGO) (specify):______']<-""
 
 for (idx in seq(1:8)) {
   setnames(results,paste0("T_GI_", idx), paste0("GI", idx))
@@ -15,6 +19,9 @@ for (idx in seq(1:8)) {
 
 for (letter in c('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h')) {
   setnames(results,paste0("HR2_", letter), paste0("HR2", letter))
+}
+for (letter in c('a', 'b', 'c', 'd')) {
+  setnames(results,paste0("HR4_", letter), paste0("HR4", letter))
 }
 setnames(results,'HR2_i1_Specify', 'HR2i1Specify')
 setnames(results,'HR2_i1', 'HR2i1')
@@ -48,7 +55,7 @@ multipleAnswersQ <- function(question, results, questions) {
   resultsForQuestion <-results[, names(results) %in% c("District", headers), with=FALSE]
   resultsLong <- melt(resultsForQuestion, id.vars = c("District"), measure.vars = headers)
   resultsConcatenate <- resultsLong[value != "", .(value = paste(value, collapse="\n")), by = District]
-  names(resultsConcatenate)[names(resultsConcatenate) == 'value'] <- questions[Code==question, Question][1]
+  names(resultsConcatenate)[names(resultsConcatenate) == 'value'] <- paste(question, questions[Code==question, Question][1], sep= "-")
   
 
   finalResult <- merge(districts_list, resultsConcatenate, by="District", all.x=TRUE)
@@ -69,7 +76,7 @@ getQuestionsOfModule <- function(module) {
 
 drawTable <- function(data, wb, idx, sheetNumber) {
   numberOfDistricts <- 10
-  padding <- 1
+  padding <- 3
   header <- 1
   
   tableSize <- numberOfDistricts + padding + header
@@ -98,9 +105,11 @@ group_questions <- function(res, idx, districts_list) {
   return(df)
 }
 
-generate_module_sheets <- function(idx, modules_list, wb, results, questions) {
+generate_module_sheets <- function(idx, modules_list, modules_titles_list,  wb, results, questions) {
   module <- modules_list[idx]
+  title <- modules_titles_list[idx]
   sheetNumber <- idx
+  
   ACMultipleQList <- getQuestionsOfModule(module)
   res <- lapply(ACMultipleQList, multipleAnswersQ, results = results, questions = questions)
   
@@ -112,6 +121,10 @@ generate_module_sheets <- function(idx, modules_list, wb, results, questions) {
   }
   
   addWorksheet(wb, sheetName = module)
+  
+  titleStyle <- createStyle(fontSize = 14)
+  addStyle(wb, sheet = sheetNumber, titleStyle, rows=1, cols=1)
+  writeData(wb, sheet = sheetNumber, x = title, startCol = 1, startRow = 1)
   
   setColWidths(wb, sheet = sheetNumber, cols = 1, widths = 15)
   setColWidths(wb, sheet = sheetNumber, cols = 2:20, widths = 60)
@@ -127,12 +140,14 @@ generate_module_sheets <- function(idx, modules_list, wb, results, questions) {
 ## Raw Data
 wb <- createWorkbook()
 modules_list <- c('GI', 'AC', 'WP', 'HR', 'TR', 'KDA', 'SV', 'SC', 'VC', 'SR', 'FR', 'CC')
-
+modules_titles_list = c('General Information', 'Access to Care', 'Work-planning', 'Human Resources', 
+                        'Training', 'Key document availability', 'Supervision', 'Malaria Supply Chain', 
+                        'Vector control', 'Surveillance and Response (SR)', 'Financial resources', 'Cross-sector collaboration')
 
 for (moduleIdx in seq(from = 1, to=length(modules_list))) {
-  wb <- generate_module_sheets(moduleIdx, modules_list, wb, results, questions)
+  wb <- generate_module_sheets(moduleIdx, modules_list, modules_titles_list, wb, results, questions)
 }
 
 
-saveWorkbook(wb, "/home/syldor/VB-shared/malaria_survey.xlsx", overwrite = TRUE)
+saveWorkbook(wb, "/home/syldor/VB-shared/Malaria Survey: Results Per District.xlsx", overwrite = TRUE)
 
